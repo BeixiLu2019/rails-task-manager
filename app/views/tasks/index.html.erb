@@ -1,0 +1,15 @@
+<% @tasks.each do|t| %>
+<div>
+  <h2>
+  <%= t.completed ? '☑️': '◻️' %>
+  <%= t.title%>
+  </h2>
+  <%= link_to 'more', task_path(t)%> <!-- iteration t passed in as params fortask-path  -->
+</div>
+  <%= link_to task_path(t), method: :delete do %>
+  <i class="fas fa-trash-alt">delete</i>
+  <% end %>
+<% end %>
+<div>
+  <%= link_to 'add a new task', new_task_path %>
+</div>
